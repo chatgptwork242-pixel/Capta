@@ -173,7 +173,7 @@
   calc();
 
   // exemplo no hero
-  (function () {
+  if ($("#heroExemplo")) (function () {
     var p = C.produtos.negocio, f = C.frequencias.diaria;
     var total = p.inicial * (1 + p.taxaMensal * 1), n = f.porMes;
     $("#heroExemplo").textContent = mt(Math.ceil(total / n)) + "/dia";
