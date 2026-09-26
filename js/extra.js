@@ -67,10 +67,12 @@
   /* ---------- Barra móvel ---------- */
   var mw = $("#mbarWa");
   if (mw) mw.href = wa("Olá Capta! Gostaria de saber mais sobre o microcrédito.");
+  var fw = $("#faqWa");
+  if (fw) { fw.href = wa("Olá Capta! Tenho uma dúvida sobre o microcrédito."); fw.target = "_blank"; fw.rel = "noopener"; }
 
   /* ---------- Animações ---------- */
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var targets = document.querySelectorAll(".section__head, .feature, .product, .steps li, .card, .edu__card, .faq details, .sim");
+  var targets = document.querySelectorAll(".section__head, .tile, .product, .steps li, .card, .edu__card, .faq details, .sim, .about__quote");
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
