@@ -80,6 +80,26 @@
     targets.forEach(function (t, i) { t.classList.add("reveal"); t.style.transitionDelay = (i % 5) * 60 + "ms"; io.observe(t); });
   }
 
+  /* ---------- Medição de visitas (GoatCounter, sem cookies) ---------- */
+  var gc = C.analytics && C.analytics.goatcounter;
+  function track(name) { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: name, title: name, event: true }); }
+  if (gc) {
+    var s = document.createElement("script");
+    s.async = true; s.src = "https://gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + gc + ".goatcounter.com/count");
+    document.head.appendChild(s);
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest("a,button"); if (!a) return;
+      if (a.id === "qWa" || a.id === "btnPedir") track("pedido-whatsapp-simulacao");
+      else if (a.id === "mbarWa" || a.id === "waFloat" || a.id === "faqWa") track("contacto-whatsapp");
+      else if (a.id === "btnPdf") track("simulacao-pdf");
+      else if (a.id === "btnPlano") track("simulacao-plano");
+    });
+    var pf = $("#pedidoForm");
+    if (pf) pf.addEventListener("submit", function () { track("pedido-formulario"); });
+    if (qr) qr.addEventListener("change", function () { track("simulacao-rapida"); }, { once: true });
+  }
+
   /* ---------- Números que contam ---------- */
   document.querySelectorAll(".hero__stats strong").forEach(function (el) {
     var m = el.textContent.match(/^(\d+)(.*)$/);
