@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.3">
+  <link rel="stylesheet" href="css/style.css?v=3.4">
 </head>
 <body>
 
@@ -56,7 +56,7 @@
     <div class="hero__text">
       <span class="eyebrow">Microcrédito · Matola e Maputo</span>
       <h1>Tens um negócio? <span class="hl">Nós apoiamos-te.</span></h1>
-      <p class="lead">Crédito rápido, justo e sem fiador para comerciantes, vendedores, jovens empreendedores e trabalhadores por conta própria. Mais do que crédito: acompanhamento para crescer.</p>
+      <p class="lead">Duas linhas de crédito, sem fiador: <strong>Crédito ao Negócio</strong> para comerciantes, vendedores e trabalhadores por conta própria, e <strong>Crédito Pessoal</strong> para saúde, educação e imprevistos. Mais do que crédito: acompanhamento para crescer.</p>
       <div class="hero__cta">
         <a href="#simulador" class="btn btn--accent">Simular agora</a>
         <a href="#como-pedir" class="btn btn--ghost">Como pedir</a>
@@ -70,6 +70,7 @@
     <div class="hero__card">
       <form class="qsim" onsubmit="return false" aria-label="Simulação rápida">
         <p class="qsim__title">Simulação rápida</p>
+        <div class="qsim__pills" id="qProd" aria-label="Produto"></div>
         <div class="qsim__row"><label for="qValor">Quanto precisa?</label><output id="qValorOut" class="qsim__val">—</output></div>
         <input type="range" id="qValor">
         <div class="qsim__row"><span>Prazo</span></div>
@@ -85,7 +86,7 @@
           <a href="#simulador" class="btn btn--primary">Ver detalhes</a>
           <a href="#" class="btn btn--accent" id="qWa">Pedir no WhatsApp</a>
         </div>
-        <p class="qsim__note">Crédito ao Negócio · simulação indicativa, sujeita a aprovação.</p>
+        <p class="qsim__note">Simulação indicativa, sujeita a análise e aprovação.</p>
       </form>
     </div>
   </div>
@@ -217,6 +218,7 @@
           <div><dt>Juros (<span id="resTaxa"></span>)</dt><dd id="resJuros">—</dd></div>
           <div id="resAberturaRow"><dt>Taxa de abertura</dt><dd id="resAbertura">—</dd></div>
           <div><dt>Número de prestações</dt><dd id="resN">—</dd></div>
+          <div><dt>Custo total do crédito</dt><dd id="resCusto">—</dd></div>
           <div class="sim__total"><dt>Total a reembolsar</dt><dd id="resTotal">—</dd></div>
         </dl>
         <div class="sim__actions">
@@ -225,6 +227,7 @@
           <a href="#pedido" class="btn btn--accent" id="btnPedir">Pedir este crédito</a>
         </div>
         <p class="sim__disclaimer">Simulação indicativa. Os valores finais dependem da análise e aprovação do pedido.</p>
+        <details class="calc"><summary>Como é calculado?</summary><p><b>Juros</b> = valor pedido × taxa mensal × número de meses.<br><b>Total a reembolsar</b> = valor pedido + juros<span id="calcAbertura"> + taxa de abertura</span>.<br><b>Prestação</b> = total ÷ número de prestações (diária: 26 por mês, de segunda a sábado; semanal: 4 por mês; mensal: 1 por mês).</p></details>
       </div>
     </div>
 
@@ -294,7 +297,7 @@
       <ul class="checks">
         <li>Atendimento próximo e personalizado</li>
         <li>Resposta em até 24 horas úteis</li>
-        <li>Dados tratados com total confidencialidade</li>
+        <li>Dados tratados de forma confidencial</li>
       </ul>
     </div>
     <form class="card form" id="pedidoForm" novalidate>
@@ -316,7 +319,7 @@
         <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>
         Enviar pedido pelo WhatsApp
       </button>
-      <p class="form__note">🔒 Dados 100% confidenciais e protegidos.</p>
+      <p class="form__note">🔒 Os seus dados são tratados de forma confidencial, de acordo com a nossa <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
     </form>
   </div>
 </section>
@@ -421,6 +424,7 @@
     <div>
       <img src="assets/logo-branco.png" alt="Capta Microcrédito" width="185" height="56" style="height:56px;width:auto">
       <p class="footer__slogan">Empoderando o seu Potencial Financeiro</p>
+      <ul class="footer__inst" id="footerInst" hidden></ul>
       <div class="social">
         <a id="lnkFacebook" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6c0-.9.6-1 1-1h2V2h-3c-3 0-4 2-4 4v2H8v3h2v11h4V11h3l.5-3H14z"/></svg></a>
         <a id="lnkInstagram" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></a>
@@ -457,8 +461,8 @@
   <a href="#" class="btn btn--accent" id="mbarWa" target="_blank" rel="noopener">WhatsApp</a>
 </nav>
 
-<script src="js/config.js?v=3.3"></script>
-<script src="js/main.js?v=3.3"></script>
-<script src="js/extra.js?v=3.3"></script>
+<script src="js/config.js?v=3.4"></script>
+<script src="js/main.js?v=3.4"></script>
+<script src="js/extra.js?v=3.4"></script>
 </body>
 </html>
