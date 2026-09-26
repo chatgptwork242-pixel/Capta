@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/extra.css">
 </head>
 <body>
 
@@ -31,6 +32,7 @@
       <a href="#produtos">Produtos</a>
       <a href="#como-funciona">Como Funciona</a>
       <a href="#requisitos">Requisitos</a>
+      <a href="#dicas">Dicas</a>
       <a href="#faq">Perguntas</a>
       <a href="#contactos">Contactos</a>
       <a href="#simulador" class="btn btn--accent btn--sm">Simular Crédito</a>
@@ -56,17 +58,37 @@
         <li><strong>3</strong><span>formas de pagar</span></li>
       </ul>
     </div>
-    <div class="hero__card" aria-hidden="true">
-      <div class="mini-sim">
-        <p class="mini-sim__label">Exemplo de prestação</p>
-        <p class="mini-sim__value" id="heroExemplo">—</p>
-        <p class="mini-sim__note" id="heroExemploNota">&nbsp;</p>
-        <div class="mini-sim__bar"><span></span></div>
-        <p class="mini-sim__slogan">Empoderando o seu Potencial Financeiro</p>
-      </div>
+    <div class="hero__card">
+      <form class="qsim" onsubmit="return false" aria-label="Simulação rápida">
+        <p class="qsim__title">Simulação rápida · Crédito ao Negócio</p>
+        <div class="qsim__row"><label for="qValor">Quanto precisa?</label><output id="qValorOut" class="qsim__val">—</output></div>
+        <input type="range" id="qValor">
+        <div class="qsim__row"><span>Prazo</span></div>
+        <div class="qsim__pills" id="qPrazo"></div>
+        <div class="qsim__row"><span>Pagamento</span></div>
+        <div class="qsim__pills" id="qFreq"></div>
+        <div class="qsim__out" aria-live="polite">
+          <p id="qPrestLabel">Prestação</p>
+          <strong id="qPrest">—</strong>
+          <p id="qTotal"></p>
+        </div>
+        <div class="qsim__actions">
+          <a href="#simulador" class="btn btn--primary">Ver detalhes</a>
+          <a href="#" class="btn btn--accent" id="qWa">Pedir no WhatsApp</a>
+        </div>
+        <p class="qsim__note">Simulação indicativa, sujeita a aprovação.</p>
+      </form>
     </div>
   </div>
 </section>
+
+<!-- ============ PAGAMENTOS ============ -->
+<div class="paystrip">
+  <div class="container paystrip__inner">
+    <span class="paystrip__label">Pague como for mais fácil:</span>
+    <ul id="payList"></ul>
+  </div>
+</div>
 
 <!-- ============ DIFERENCIAIS ============ -->
 <section class="section" id="diferenciais">
@@ -324,6 +346,55 @@
   </div>
 </section>
 
+<!-- ============ EDUCAÇÃO FINANCEIRA ============ -->
+<section class="section" id="dicas">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Educação financeira</span>
+      <h2>Dicas para o seu dinheiro render mais</h2>
+      <p>Na Capta acreditamos que o crédito funciona melhor com conhecimento. Conceitos simples, com exemplos do dia-a-dia.</p>
+    </div>
+    <div class="edu">
+      <article class="edu__card">
+        <span class="edu__tag">Negócio</span>
+        <h3>Fluxo de caixa: o sangue do seu negócio</h3>
+        <p>É o controlo do dinheiro que entra e sai. Manter o equilíbrio evita apertos e ajuda a pagar as prestações a tempo.</p>
+        <div class="edu__ex"><b>Na prática:</b> garanta que as vendas cobrem os custos fixos, como a renda da banca e o transporte da mercadoria.</div>
+      </article>
+      <article class="edu__card">
+        <span class="edu__tag">Pessoal</span>
+        <h3>Orçamento pessoal: a chave do controlo</h3>
+        <p>Planear os gastos ajuda a encontrar poupanças e a pôr o dinheiro no que realmente importa.</p>
+        <div class="edu__ex"><b>Na prática:</b> separe uma parte do que ganha para a poupança e para as contas fixas logo que recebe.</div>
+      </article>
+      <article class="edu__card">
+        <span class="edu__tag">Crédito</span>
+        <h3>Amortização: como a dívida diminui</h3>
+        <p>Amortizar é pagar o valor que pediu emprestado. Cada prestação reduz o que ainda deve.</p>
+        <div class="edu__ex"><b>Na prática:</b> se pagar antes do prazo, fale connosco para saber quanto falta liquidar.</div>
+      </article>
+      <article class="edu__card">
+        <span class="edu__tag">Crédito</span>
+        <h3>Juros compostos: cuidado com as dívidas</h3>
+        <p>São juros sobre juros. Fazem uma dívida crescer depressa se não for controlada.</p>
+        <div class="edu__ex"><b>Na prática:</b> uma dívida de 1 000 MT a 10% ao mês passa a 1 100 MT, e no mês seguinte os juros já são calculados sobre 1 100 MT.</div>
+      </article>
+      <article class="edu__card">
+        <span class="edu__tag">Negócio</span>
+        <h3>Controlo de custos: saúde do negócio</h3>
+        <p>Cortar gastos desnecessários aumenta o lucro sem precisar de vender mais.</p>
+        <div class="edu__ex"><b>Na prática:</b> se a mercadoria ficou mais cara, negocie com o fornecedor ou procure alternativas.</div>
+      </article>
+      <article class="edu__card">
+        <span class="edu__tag">Pessoal</span>
+        <h3>Inflação: o dinheiro vale menos</h3>
+        <p>Quando os preços sobem, o mesmo dinheiro compra menos. Por isso é importante fazê-lo trabalhar.</p>
+        <div class="edu__ex"><b>Na prática:</b> com inflação de 5%, o que custa 100 MT hoje custa 105 MT daqui a um ano.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="section section--tint" id="faq">
   <div class="container container--narrow">
@@ -366,6 +437,7 @@
         <li><a href="#produtos">Crédito Pessoal / Consumo</a></li>
         <li><a href="#simulador">Simulador</a></li>
         <li><a href="#requisitos">Requisitos</a></li>
+        <li><a href="#dicas">Educação financeira</a></li>
         <li><a href="#faq">Perguntas frequentes</a></li>
       </ul>
     </div>
@@ -379,7 +451,13 @@
   <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>
 </a>
 
+<nav class="mbar" aria-label="Acções rápidas">
+  <a href="#simulador" class="btn btn--primary">Simular</a>
+  <a href="#" class="btn btn--accent" id="mbarWa" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
+<script src="js/extra.js"></script>
 </body>
 </html>
