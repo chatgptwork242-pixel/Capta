@@ -45,5 +45,8 @@ window.CAPTA = {
   },
 
   /* Taxa de abertura de processo sobre o valor (0 = sem taxa) */
-  taxaAbertura: 0                        // ⚠️ EXEMPLO
+  taxaAbertura: 0,                       // ⚠️ EXEMPLO
+
+  /* Formas de pagamento mostradas no topo do site */
+  pagamentos: ["M-Pesa", "e-Mola", "mKesh", "Depósito bancário", "Numerário no balcão"]  // ⚠️ CONFIRMAR
 };
