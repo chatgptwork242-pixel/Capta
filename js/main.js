@@ -94,6 +94,8 @@
     $("#resAbertura").textContent = mt(r.abertura);
     $("#resN").textContent = r.n;
     $("#resTotal").textContent = mt(r.total);
+    var rc = $("#resCusto"); if (rc) rc.textContent = mt(r.juros + r.abertura) + " (" + pct((r.juros + r.abertura) / st.valor) + " do valor)";
+    var ca = $("#calcAbertura"); if (ca) ca.hidden = !C.taxaAbertura;
     // formulário de pedido acompanha a simulação
     $("#pedidoProduto").value = st.produto;
     $("#pedidoValor").value = st.valor;
