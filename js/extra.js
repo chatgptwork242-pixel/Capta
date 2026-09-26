@@ -4,7 +4,7 @@
   var C = window.CAPTA;
   var $ = function (s) { return document.querySelector(s); };
   var fmt = new Intl.NumberFormat("pt-PT", { maximumFractionDigits: 0 });
-  function mt(v) { return fmt.format(Math.ceil(v)).replace(/[  ]/g, " ") + " MT"; }
+  function mt(v) { return String(Math.ceil(v)).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " MT"; }
   function wa(msg) { return "https://wa.me/" + C.contactos.whatsapp + "?text=" + encodeURIComponent(msg); }
 
   /* ---------- Formas de pagamento ---------- */
