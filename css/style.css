@@ -382,3 +382,11 @@ thead th{position:sticky;top:0;background:var(--tint);font-weight:600}
 .notfound__art{width:180px;margin:0 auto 1.5rem}
 .notfound p{color:var(--muted);max-width:32em;margin-inline:auto}
 .notfound__cta{justify-content:center}
+
+/* ===== v3.4 — transparência e dados institucionais ===== */
+.calc{margin-top:.8rem;font-size:.85rem;opacity:.95}
+.calc summary{cursor:pointer;font-weight:600;color:var(--mint)}
+.calc p{margin:.5rem 0 0;line-height:1.55;opacity:.9}
+.footer__inst{list-style:none;padding:0;margin:0 0 1rem;font-size:.82rem;opacity:.85}
+.footer__inst li{margin:.2rem 0}
+.form__note a{color:var(--slate);font-weight:600}
