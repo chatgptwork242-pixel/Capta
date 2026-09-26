@@ -10,10 +10,21 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
   <meta name="theme-color" content="#9AE7AF">
+  <link rel="canonical" href="https://chatgptwork242-pixel.github.io/Capta/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_MZ">
+  <meta property="og:url" content="https://chatgptwork242-pixel.github.io/Capta/">
+  <meta property="og:image" content="https://chatgptwork242-pixel.github.io/Capta/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FinancialService","name":"Capta Microcrédito","slogan":"Empoderando o seu Potencial Financeiro","description":"Microcrédito rápido, justo e sem fiador para pequenos empreendedores e particulares.","url":"https://chatgptwork242-pixel.github.io/Capta/","logo":"https://chatgptwork242-pixel.github.io/Capta/assets/logo.png","image":"https://chatgptwork242-pixel.github.io/Capta/assets/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Matola","addressRegion":"Maputo","addressCountry":"MZ"},"areaServed":["Matola","Maputo"],"currenciesAccepted":"MZN"}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=3.2">
 </head>
 <body>
 
@@ -290,7 +301,7 @@
       <div class="form__grid">
         <label>Nome completo<input name="nome" required autocomplete="name"></label>
         <label>Telefone / WhatsApp<input name="telefone" required inputmode="tel" autocomplete="tel" placeholder="84 000 0000"></label>
-        <label>Nº do BI<input name="bi" required></label>
+        <label>Nº do BI <span class="form__hint">(opcional, pode enviar depois)</span><input name="bi"></label>
         <label>Bairro / Localidade<input name="bairro" required></label>
         <label>Actividade ou local de trabalho<input name="actividade" required placeholder="Ex.: banca de roupa no mercado"></label>
         <label>Produto
@@ -299,7 +310,7 @@
         <label>Valor pretendido (MT)<input name="valor" id="pedidoValor" inputmode="numeric" required></label>
         <label>Prazo e pagamento<input name="prazo" id="pedidoPrazo" readonly></label>
       </div>
-      <label class="consent"><input type="checkbox" name="consent" required> Autorizo a Capta Microcrédito a usar estes dados para analisar o meu pedido.</label>
+      <label class="consent"><input type="checkbox" name="consent" required> Autorizo a Capta Microcrédito a usar estes dados para analisar o meu pedido, nos termos da <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</label>
       <p class="form__error" id="pedidoErro" hidden>Por favor preencha todos os campos e aceite a autorização.</p>
       <button type="submit" class="btn btn--accent btn--block">
         <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>
@@ -433,7 +444,7 @@
     </div>
   </div>
   <div class="container footer__bottom">
-    <p>© <span id="ano"></span> Capta Microcrédito, E.I. Todos os direitos reservados.</p>
+    <p class="footer__legal"><span>© <span id="ano"></span> Capta Microcrédito, E.I. Todos os direitos reservados.</span><a href="privacidade.html">Política de Privacidade</a><a href="termos.html">Termos e Condições</a></p>
   </div>
 </footer>
 
@@ -446,8 +457,8 @@
   <a href="#" class="btn btn--accent" id="mbarWa" target="_blank" rel="noopener">WhatsApp</a>
 </nav>
 
-<script src="js/config.js?v=3.1"></script>
-<script src="js/main.js?v=3.1"></script>
-<script src="js/extra.js?v=3.1"></script>
+<script src="js/config.js?v=3.2"></script>
+<script src="js/main.js?v=3.2"></script>
+<script src="js/extra.js?v=3.2"></script>
 </body>
 </html>
