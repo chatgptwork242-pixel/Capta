@@ -307,16 +307,47 @@ thead th{position:sticky;top:0;background:var(--tint);font-weight:600}
   .hero__stats li{min-width:0;flex:1}
 }
 
-/* Impressão / PDF do plano */
+/* Impressão / PDF da simulação — 1 folha A4 */
 #printArea{display:none}
+@page{size:A4;margin:11mm 12mm}
 @media print{
-  body *{visibility:hidden}
-  #printArea,#printArea *{visibility:visible}
-  #printArea{display:block;position:absolute;left:0;top:0;width:100%;font-family:Arial,sans-serif;color:#000;padding:24px}
-  #printArea h1{font-size:22px;color:#335564;text-transform:none}
-  #printArea table{margin-top:12px}
-  #printArea .p-sum td{text-align:left}
+  html,body{background:#fff!important;padding:0!important;margin:0}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+.pdf{font:9.5pt/1.4 "Inter",Arial,sans-serif;color:#16252C}
+.pdf h2{font:700 13pt/1.1 "Saira Condensed","Arial Narrow",sans-serif;text-transform:uppercase;color:#335564;margin:0 0 2.5mm}
+.pdf__head{display:flex;justify-content:space-between;align-items:center;padding-bottom:3.5mm;border-bottom:1.2mm solid #9AE7AF;margin-bottom:4mm}
+.pdf__head img{height:15mm;width:auto}
+.pdf__meta{text-align:right;font-size:8.5pt;color:#556870}
+.pdf__meta b{display:block;font:700 15pt/1.1 "Saira Condensed","Arial Narrow",sans-serif;text-transform:uppercase;color:#335564}
+.pdf__hero{display:grid;grid-template-columns:1.3fr 1fr;border-radius:4mm;overflow:hidden;margin-bottom:4mm}
+.pdf__hero>div{padding:4mm 5mm}
+.pdf__hero p{margin:0;font-size:8.5pt}
+.pdf__hero strong{display:block;font:700 24pt/1.05 "Saira Condensed","Arial Narrow",sans-serif}
+.pdf__main{background:#9AE7AF;color:#1B2E36}
+.pdf__main strong{color:#1B2E36}
+.pdf__total{background:#335564;color:#fff}
+.pdf__total strong{color:#9AE7AF}
+.pdf__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin-bottom:5mm}
+.pdf__grid div{border:.3mm solid #D8E6E0;border-radius:2.5mm;padding:2.2mm 3mm}
+.pdf__grid span{display:block;font-size:7.5pt;text-transform:uppercase;letter-spacing:.06em;color:#556870}
+.pdf__grid b{font-size:10pt}
+.pdf__plan{display:grid;gap:3mm;margin-bottom:5mm}
+.pdf__plan table{width:100%;border-collapse:collapse;font-size:8pt}
+.pdf__plan th{background:#F0FBF3;color:#335564;font-weight:700;text-align:right;padding:1.3mm 1.6mm;border-bottom:.4mm solid #9AE7AF}
+.pdf__plan td{padding:.9mm 1.6mm;text-align:right;border-bottom:.2mm solid #E6EFEB;white-space:nowrap}
+.pdf__plan th:first-child,.pdf__plan td:first-child{text-align:left;color:#556870}
+.pdf__plan th:nth-child(2),.pdf__plan td:nth-child(2){text-align:left}
+.pdf__plan tr:nth-child(even) td{background:#FAFDFB}
+.pdf--dense .pdf__plan table{font-size:7pt}
+.pdf--dense .pdf__plan td{padding:.55mm 1.2mm}
+.pdf__next{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:4mm}
+.pdf__next div{background:#F0FBF3;border-radius:2.5mm;padding:2.5mm 3mm;font-size:8pt}
+.pdf__next b{display:block;color:#335564;font-size:8.5pt}
+.pdf__foot{border-top:.3mm solid #D8E6E0;padding-top:2.5mm;display:flex;justify-content:space-between;gap:4mm;font-size:7.5pt;color:#556870}
+.pdf__foot em{font:600 10pt "Saira Condensed","Arial Narrow",sans-serif;color:#335564;font-style:normal;white-space:nowrap}
 
 /* ===== v3.2 — acessibilidade, páginas legais e 404 ===== */
 .logo img{height:56px}
