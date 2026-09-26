@@ -20,3 +20,6 @@ Juro simples mensal sobre o valor pedido:
 
 ## Publicação
 GitHub Pages, a partir do ramo `main` (pasta raiz).
+
+## Depois de editar CSS ou JS
+Aumente o número da versão (`?v=3.1` → `?v=3.2`) nos links do `index.html` para os visitantes receberem logo a versão nova.
