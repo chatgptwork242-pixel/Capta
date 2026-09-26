@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chatgptwork242-pixel.github.io/Capta/sitemap.xml
