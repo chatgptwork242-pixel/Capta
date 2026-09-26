@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termos e Condições | Capta Microcrédito</title>
+  <meta name="description" content="Termos e condições de utilização do site da Capta Microcrédito.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta name="theme-color" content="#9AE7AF">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3.2">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a href="./" class="logo" aria-label="Capta Microcrédito — início">
+      <picture><source srcset="assets/logo-branco.png" media="(prefers-color-scheme: dark)"><img src="assets/logo.png" alt="Capta Microcrédito" width="185" height="56"></picture>
+    </a>
+    <a href="./#simulador" class="btn btn--primary btn--sm">Simular crédito</a>
+  </div>
+</header>
+
+<main class="section legal">
+ <div class="container">
+  <span class="eyebrow">Legal</span>
+  <h1>Termos e Condições</h1>
+  <p class="legal__date">Última actualização: <time datetime="2026-09-26">26 de Setembro de 2026</time></p>
+  <div class="legal__note"><strong>Modelo para revisão.</strong> Este texto é uma base preparada para a Capta. Antes de o considerar definitivo, deve ser revisto por um jurista e completado com os dados de registo da empresa (NUIT e registo comercial).</div>
+
+  <h2>1. Sobre este site</h2>
+  <p>Este site pertence à <strong>Capta Microcrédito, E.I.</strong> e serve para apresentar os nossos produtos, permitir simulações e facilitar o contacto. Ao usá-lo, aceita estes termos.</p>
+
+  <h2>2. Simulações</h2>
+  <p>Os valores apresentados no simulador são <strong>indicativos</strong>. Não constituem proposta, contrato nem garantia de aprovação. As condições finais (valor, taxa, prazo e prestações) só ficam definidas no contrato assinado, após análise do pedido.</p>
+
+  <h2>3. Pedidos de crédito</h2>
+  <ul>
+    <li>Todos os pedidos estão sujeitos a análise e aprovação pela Capta.</li>
+    <li>O cliente compromete-se a fornecer informação verdadeira e actualizada.</li>
+    <li>A Capta pode recusar um pedido, dentro do permitido por lei.</li>
+  </ul>
+
+  <h2>4. Responsabilidade</h2>
+  <p>Fazemos o possível para que a informação do site esteja correcta e actualizada, mas podem existir erros ou alterações. Em caso de diferença, prevalecem as condições do contrato.</p>
+
+  <h2>5. Conteúdos e marca</h2>
+  <p>O nome, o logótipo, os textos e o design deste site pertencem à Capta Microcrédito e não podem ser copiados sem autorização. Os conteúdos de educação financeira são informativos e não substituem aconselhamento profissional.</p>
+
+  <h2>6. Ligações externas</h2>
+  <p>O site contém ligações para serviços de terceiros, como o WhatsApp e as redes sociais. Não somos responsáveis pelo conteúdo ou pelas regras desses serviços.</p>
+
+  <h2>7. Lei aplicável</h2>
+  <p>Estes termos regem-se pela lei da República de Moçambique.</p>
+
+  <h2>8. Contactos</h2>
+  <p>Email: <a data-c="email" href="#">—</a> · Telefone: <span data-c="tel">—</span> · <a data-c="wa" href="#" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p><a href="./" class="btn btn--primary">Voltar ao site</a></p>
+ </div>
+</main>
+<footer class="footer footer--mini">
+  <div class="container footer__bottom">
+    <p>© <span id="ano"></span> Capta Microcrédito, E.I. · <a href="privacidade.html">Privacidade</a> · <a href="termos.html">Termos</a></p>
+  </div>
+</footer>
+<script src="js/config.js?v=3.2"></script>
+<script>
+(function(){var c=window.CAPTA&&CAPTA.contactos;document.getElementById("ano").textContent=new Date().getFullYear();if(!c)return;
+document.querySelectorAll("[data-c]").forEach(function(el){var k=el.getAttribute("data-c");
+if(k==="email"){el.textContent=c.email;el.href="mailto:"+c.email}
+else if(k==="tel"){el.textContent=c.telefones.join(" / ")}
+else if(k==="morada"){el.textContent=c.morada}
+else if(k==="wa"){el.href="https://wa.me/"+c.whatsapp}});})();
+</script>
+</body>
+</html>
