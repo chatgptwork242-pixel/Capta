@@ -8,7 +8,9 @@
   var fmt2 = new Intl.NumberFormat("pt-PT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   function mt(v) {
     v = Math.round(v * 100) / 100;
-    return (v % 1 === 0 ? fmt.format(v) : fmt2.format(v)).replace(/[  ]/g, " ") + " MT";
+    var s = (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2)).split(".");
+    s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return s.join(",") + " MT";
   }
   function pct(v) { return fmt.format(v * 100) + "%"; }
   function waLink(msg) {
@@ -135,23 +137,46 @@
   });
 
   $("#btnPdf").addEventListener("click", function () {
-    var d = linhasPlano(), area = $("#printArea");
+    var d = linhasPlano(), r = d.r, now = new Date(), area = $("#printArea");
     if (!area) { area = document.createElement("div"); area.id = "printArea"; document.body.appendChild(area); }
+    var pad = function (x) { return (x < 10 ? "0" : "") + x; };
+    var ref = "SIM-" + now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + "-" + pad(now.getHours()) + pad(now.getMinutes());
+    var prazoTxt = st.prazo + (st.prazo === 1 ? " mês" : " meses");
+    // plano em colunas para caber numa folha
+    var cols = Math.min(4, Math.max(1, Math.ceil(r.n / 26))), per = Math.ceil(r.n / cols), blocks = "";
+    for (var c = 0; c < cols; c++) {
+      var part = d.rows.slice(c * per, (c + 1) * per);
+      if (!part.length) continue;
+      blocks += "<table><thead><tr><th>Nº</th><th>Data</th><th>Prestação</th><th>Saldo</th></tr></thead><tbody>" +
+        part.map(function (x) { return "<tr><td>" + x.join("</td><td>") + "</td></tr>"; }).join("") + "</tbody></table>";
+    }
+    var cell = function (k, v) { return "<div><span>" + k + "</span><b>" + v + "</b></div>"; };
     area.innerHTML =
-      "<h1>Capta Microcrédito — Simulação de crédito</h1>" +
-      "<p>" + C.slogan + "</p>" +
-      '<table class="p-sum"><tr><td>Produto</td><td>' + d.r.p.nome + "</td></tr>" +
-      "<tr><td>Valor pedido</td><td>" + mt(st.valor) + "</td></tr>" +
-      "<tr><td>Taxa de juro</td><td>" + pct(d.r.p.taxaMensal) + " ao mês</td></tr>" +
-      "<tr><td>Prazo</td><td>" + st.prazo + (st.prazo === 1 ? " mês" : " meses") + "</td></tr>" +
-      "<tr><td>Prestação " + d.r.f.nome.toLowerCase() + "</td><td>" + mt(d.r.prest) + " × " + d.r.n + "</td></tr>" +
-      "<tr><td><b>Total a reembolsar</b></td><td><b>" + mt(d.r.total) + "</b></td></tr></table>" +
-      "<h3 style='margin-top:18px'>Plano de pagamento</h3>" +
-      "<table><thead><tr><th>Nº</th><th>Data prevista</th><th>Prestação</th><th>Saldo</th></tr></thead><tbody>" +
-      d.rows.map(function (r) { return "<tr><td>" + r.join("</td><td>") + "</td></tr>"; }).join("") +
-      "</tbody></table><p style='margin-top:16px;font-size:12px'>Simulação indicativa emitida em " + new Date().toLocaleDateString("pt-PT") +
-      ". Os valores finais dependem da análise e aprovação do pedido. " + C.contactos.telefones.join(" / ") + " · " + C.contactos.email + "</p>";
-    window.print();
+      '<div class="pdf' + (cols >= 3 ? " pdf--dense" : "") + '">' +
+      '<header class="pdf__head"><img src="assets/logo.png" alt="Capta Microcrédito">' +
+      '<div class="pdf__meta"><b>Simulação de crédito</b>Ref. ' + ref + " · Emitida em " + now.toLocaleDateString("pt-PT") + "</div></header>" +
+      '<section class="pdf__hero"><div class="pdf__main"><p>Prestação ' + r.f.nome.toLowerCase() + "</p><strong>" + mt(r.prest) + "</strong><p>" +
+      r.n + " prestações · " + prazoTxt + '</p></div><div class="pdf__total"><p>Total a reembolsar</p><strong>' + mt(r.total) + "</strong><p>" +
+      mt(st.valor) + " + " + mt(r.juros + r.abertura) + " de encargos</p></div></section>" +
+      '<section class="pdf__grid">' +
+      cell("Produto", r.p.nome) + cell("Valor pedido", mt(st.valor)) + cell("Taxa de juro", pct(r.p.taxaMensal) + " ao mês") +
+      cell("Prazo", prazoTxt) + cell("Pagamento", r.f.nome) + cell(C.taxaAbertura ? "Juros + abertura" : "Total de juros", mt(r.juros + r.abertura)) +
+      "</section>" +
+      "<h2>Plano de pagamento</h2>" +
+      '<div class="pdf__plan" style="grid-template-columns:repeat(' + cols + ',1fr)">' + blocks + "</div>" +
+      '<section class="pdf__next">' +
+      "<div><b>1. Fale connosco</b>WhatsApp " + (C.contactos.telefones[0] || "") + "</div>" +
+      "<div><b>2. Traga os documentos</b>BI, comprovativo de residência e dados do negócio ou rendimento.</div>" +
+      "<div><b>3. Resposta em 24h</b>Após a entrega dos documentos, em horas úteis.</div></section>" +
+      '<footer class="pdf__foot"><span>Simulação indicativa, sem valor contratual. As condições finais dependem da análise e aprovação do pedido. ' +
+      C.empresa + " · " + C.contactos.morada + " · " + C.contactos.email + "</span><em>" + C.slogan + "</em></footer></div>";
+    var t = document.title;
+    document.title = "Simulacao-Capta-" + ref;
+    var img = area.querySelector("img"), go = function () {
+      window.print();
+      setTimeout(function () { document.title = t; }, 500);
+    };
+    if (img.complete) go(); else { img.onload = go; img.onerror = go; }
   });
 
   range.addEventListener("input", calc);
