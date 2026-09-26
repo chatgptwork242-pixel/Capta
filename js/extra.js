@@ -12,10 +12,10 @@
   if (pl && C.pagamentos) pl.innerHTML = C.pagamentos.map(function (p) { return "<li>" + p + "</li>"; }).join("");
 
   /* ---------- Simulador rápido (hero) ---------- */
-  var q = { valor: C.produtos.negocio.inicial, prazo: C.produtos.negocio.prazos[0], freq: "diaria" };
+  var q = { prod: "negocio", valor: C.produtos.negocio.inicial, prazo: C.produtos.negocio.prazos[0], freq: "diaria" };
   var qr = $("#qValor");
   function qCalc() {
-    var p = C.produtos.negocio, f = C.frequencias[q.freq];
+    var p = C.produtos[q.prod], f = C.frequencias[q.freq];
     var total = q.valor * (1 + p.taxaMensal * q.prazo) + q.valor * (C.taxaAbertura || 0);
     var n = Math.max(1, Math.round(f.porMes * q.prazo));
     q.total = total; q.n = n; q.prest = total / n;
@@ -33,22 +33,31 @@
       b.addEventListener("click", function () {
         q[key] = it.value;
         el.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+        if (key === "prod") qSetProd();
         qCalc();
       });
       el.appendChild(b);
     });
   }
   if (qr) {
-    var pn = C.produtos.negocio;
-    qr.min = pn.min; qr.max = pn.max; qr.step = pn.passo; qr.value = q.valor;
+    var qSetProd = function () {
+      var pn = C.produtos[q.prod];
+      qr.min = pn.min; qr.max = pn.max; qr.step = pn.passo;
+      if (q.valor < pn.min || q.valor > pn.max) q.valor = pn.inicial;
+      qr.value = q.valor;
+      if (pn.prazos.indexOf(q.prazo) < 0) q.prazo = pn.prazos[0];
+      pills($("#qPrazo"), pn.prazos.map(function (m) { return { value: m, label: m + (m === 1 ? " mês" : " meses") }; }), "prazo");
+    };
+    var qp = $("#qProd");
+    if (qp) pills(qp, Object.keys(C.produtos).map(function (k) { return { value: k, label: C.produtos[k].nome.replace(" / Consumo", "") }; }), "prod");
+    qSetProd();
     qr.addEventListener("input", function () { q.valor = Number(qr.value); qCalc(); });
-    pills($("#qPrazo"), pn.prazos.map(function (m) { return { value: m, label: m + (m === 1 ? " mês" : " meses") }; }), "prazo");
     pills($("#qFreq"), Object.keys(C.frequencias).map(function (k) { return { value: k, label: C.frequencias[k].nome }; }), "freq");
     qCalc();
     $("#qWa").addEventListener("click", function (e) {
       e.preventDefault();
       window.open(wa("Olá Capta! Fiz uma simulação no site e quero pedir crédito.\n\n" +
-        "Produto: " + pn.nome + "\nValor: " + mt(q.valor) + "\nPrazo: " + q.prazo + (q.prazo === 1 ? " mês" : " meses") +
+        "Produto: " + C.produtos[q.prod].nome + "\nValor: " + mt(q.valor) + "\nPrazo: " + q.prazo + (q.prazo === 1 ? " mês" : " meses") +
         "\nPagamento: " + C.frequencias[q.freq].nome + " (" + q.n + " × " + mt(q.prest) + ")\nTotal: " + mt(q.total)), "_blank", "noopener");
     });
   }
@@ -78,6 +87,18 @@
       ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
     }, { threshold: 0.12 });
     targets.forEach(function (t, i) { t.classList.add("reveal"); t.style.transitionDelay = (i % 5) * 60 + "ms"; io.observe(t); });
+  }
+
+  /* ---------- Dados institucionais (só os preenchidos) ---------- */
+  var L = C.legal || {}, fi = $("#footerInst");
+  if (fi) {
+    var it = [];
+    if (L.razaoSocial) it.push("<li>" + L.razaoSocial + "</li>");
+    if (L.nuit) it.push("<li>NUIT: " + L.nuit + "</li>");
+    if (L.registoComercial) it.push("<li>" + L.registoComercial + "</li>");
+    if (L.autorizacao) it.push("<li>" + L.autorizacao + "</li>");
+    if (L.moradaCompleta) it.push("<li>" + L.moradaCompleta + "</li>");
+    fi.innerHTML = it.join(""); fi.hidden = !it.length;
   }
 
   /* ---------- Medição de visitas (GoatCounter, sem cookies) ---------- */
