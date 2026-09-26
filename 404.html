@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada | Capta Microcrédito</title>
+  <meta name="description" content="Página não encontrada.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/Capta/assets/favicon.png" type="image/png">
+  <meta name="theme-color" content="#9AE7AF">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Capta/css/style.css?v=3.2">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a href="/Capta/" class="logo" aria-label="Capta Microcrédito — início">
+      <picture><source srcset="/Capta/assets/logo-branco.png" media="(prefers-color-scheme: dark)"><img src="/Capta/assets/logo.png" alt="Capta Microcrédito" width="185" height="56"></picture>
+    </a>
+    <a href="/Capta/#simulador" class="btn btn--primary btn--sm">Simular crédito</a>
+  </div>
+</header>
+
+<main class="section notfound">
+ <div class="container">
+  <svg viewBox="0 0 240 200" fill="none" stroke-width="5" aria-hidden="true" class="notfound__art">
+    <path d="M92 22h120v150" stroke="#5FCB84"/><path d="M78 36h120v150" stroke="#5FCB84"/>
+    <rect x="62" y="50" width="120" height="146" stroke="#335564"/>
+    <circle cx="122" cy="123" r="20" stroke="#5FCB84" stroke-width="3"/>
+  </svg>
+  <span class="eyebrow">Erro 404</span>
+  <h1>Esta página não existe</h1>
+  <p>O link pode estar errado ou a página mudou de lugar. Mas o crédito para o seu negócio continua aqui.</p>
+  <div class="hero__cta notfound__cta">
+    <a href="/Capta/" class="btn btn--primary">Ir para o início</a>
+    <a href="/Capta/#simulador" class="btn btn--ghost">Simular crédito</a>
+  </div>
+ </div>
+</main>
+<footer class="footer footer--mini">
+  <div class="container footer__bottom">
+    <p>© <span id="ano"></span> Capta Microcrédito, E.I. · <a href="/Capta/privacidade.html">Privacidade</a> · <a href="/Capta/termos.html">Termos</a></p>
+  </div>
+</footer>
+<script src="/Capta/js/config.js?v=3.2"></script>
+<script>
+(function(){var c=window.CAPTA&&CAPTA.contactos;document.getElementById("ano").textContent=new Date().getFullYear();if(!c)return;
+document.querySelectorAll("[data-c]").forEach(function(el){var k=el.getAttribute("data-c");
+if(k==="email"){el.textContent=c.email;el.href="mailto:"+c.email}
+else if(k==="tel"){el.textContent=c.telefones.join(" / ")}
+else if(k==="morada"){el.textContent=c.morada}
+else if(k==="wa"){el.href="https://wa.me/"+c.whatsapp}});})();
+</script>
+</body>
+</html>
