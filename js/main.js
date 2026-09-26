@@ -184,7 +184,7 @@
   $("#pedidoForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var f = e.target, ok = true;
-    ["nome", "telefone", "bi", "bairro", "actividade", "valor"].forEach(function (n) {
+    ["nome", "telefone", "bairro", "actividade", "valor"].forEach(function (n) {
       var el = f.elements[n], bad = !el.value.trim();
       el.classList.toggle("invalid", bad); if (bad) ok = false;
     });
@@ -195,7 +195,7 @@
     var msg = "Olá Capta! Quero fazer um pedido de crédito.\n\n" +
       "Nome: " + f.elements.nome.value.trim() + "\n" +
       "Telefone: " + f.elements.telefone.value.trim() + "\n" +
-      "BI: " + f.elements.bi.value.trim() + "\n" +
+      (f.elements.bi.value.trim() ? "BI: " + f.elements.bi.value.trim() + "\n" : "") +
       "Bairro: " + f.elements.bairro.value.trim() + "\n" +
       "Actividade: " + f.elements.actividade.value.trim() + "\n" +
       "Produto: " + prodNome + "\n" +
