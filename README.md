@@ -7,7 +7,7 @@ Site institucional com simulador de crédito da **Capta Microcrédito, E.I.** �
 |---|---|
 | Taxas, montantes, prazos, frequências | `js/config.js` |
 | WhatsApp, telefones, email, morada, redes sociais | `js/config.js` |
-| Cores da marca | topo de `css/style.css` (variáveis `--primary`, `--accent`) |
+| Cores da marca | topo de `css/style.css` (variáveis `--mint`, `--slate`); modo escuro automático no bloco `prefers-color-scheme` |
 | Logótipo | substituir `assets/logo.png` (fundo claro) e `assets/logo-branco.png` (fundo escuro) |
 | Textos | `index.html` |
 
