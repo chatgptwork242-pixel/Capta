@@ -52,5 +52,16 @@ window.CAPTA = {
 
   /* Medição de visitas (GoatCounter: grátis, sem cookies).
      Crie conta em goatcounter.com e escreva aqui o seu código, ex.: "capta" */
-  analytics: { goatcounter: "" }
+  analytics: { goatcounter: "" },
+
+  /* Dados institucionais mostrados no rodapé.
+     Preencha APENAS com dados confirmados em documento oficial.
+     Campos vazios não aparecem no site. */
+  legal: {
+    razaoSocial: "Capta Microcrédito, E.I.",
+    nuit: "",                 // ex.: "400000000"
+    registoComercial: "",     // ex.: "Matrícula n.º ... Conservatória de ..."
+    autorizacao: "",          // ex.: "Autorizada pelo Banco de Moçambique — n.º ..."
+    moradaCompleta: ""        // ex.: "Av. ..., n.º ..., Bairro da Liberdade, Matola"
+  }
 };
