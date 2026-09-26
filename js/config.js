@@ -48,5 +48,9 @@ window.CAPTA = {
   taxaAbertura: 0,                       // ⚠️ EXEMPLO
 
   /* Formas de pagamento mostradas no topo do site */
-  pagamentos: ["M-Pesa", "e-Mola", "mKesh", "Depósito bancário", "Numerário no balcão"]  // ⚠️ CONFIRMAR
+  pagamentos: ["M-Pesa", "e-Mola", "mKesh", "Depósito bancário", "Numerário no balcão"],  // ⚠️ CONFIRMAR
+
+  /* Medição de visitas (GoatCounter: grátis, sem cookies).
+     Crie conta em goatcounter.com e escreva aqui o seu código, ex.: "capta" */
+  analytics: { goatcounter: "" }
 };
