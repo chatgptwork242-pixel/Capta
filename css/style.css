@@ -1,18 +1,18 @@
 /* ===== Capta Microcrédito — estilos =====
    Para mudar as cores da marca, altere apenas as variáveis abaixo. */
 :root{
-  --primary:#0B5E4A;        /* verde Capta (ajuste à cor do logótipo) */
-  --primary-dark:#073F32;
-  --primary-soft:#E6F2EE;
-  --accent:#F4B42A;         /* dourado / destaque */
-  --accent-dark:#D99A10;
-  --ink:#14211D;
-  --muted:#5B6B66;
-  --line:#DDE6E2;
+  --primary:#335564;        /* azul-ardósia do logótipo Capta */
+  --primary-dark:#223D49;
+  --primary-soft:#E7F8EC;
+  --accent:#9AE7AF;         /* verde-menta do logótipo Capta */
+  --accent-dark:#7DD896;
+  --ink:#1B2B32;
+  --muted:#5A6B72;
+  --line:#DCE7E4;
   --bg:#FFFFFF;
-  --tint:#F5F8F7;
+  --tint:#F3FAF5;
   --radius:16px;
-  --shadow:0 10px 30px rgba(11,94,74,.10);
+  --shadow:0 10px 30px rgba(51,85,100,.12);
   --font-head:"Poppins",system-ui,sans-serif;
   --font-body:"Inter",system-ui,sans-serif;
 }
@@ -51,7 +51,7 @@ p{margin:0 0 1em}
 /* Cabeçalho */
 .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .header__inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo img{height:40px;width:auto}
+.logo img{height:52px;width:auto}
 .nav{display:flex;align-items:center;gap:1.6rem}
 .nav a{text-decoration:none;font-weight:500;font-size:.95rem}
 .nav a:not(.btn):hover{color:var(--primary)}
@@ -59,7 +59,7 @@ p{margin:0 0 1em}
 .menu-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.2s}
 
 /* Hero */
-.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(244,180,42,.25),transparent 60%),linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:clamp(3rem,8vw,6rem) 0}
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(154,231,175,.28),transparent 60%),linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:clamp(3rem,8vw,6rem) 0}
 .hero__inner{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center}
 .hero .eyebrow{background:rgba(255,255,255,.12);color:var(--accent)}
 .hl{color:var(--accent)}
@@ -100,8 +100,8 @@ p{margin:0 0 1em}
 .product__tag{position:absolute;top:1.4rem;right:1.4rem;background:var(--accent);color:var(--ink);font-size:.75rem;font-weight:700;padding:.25rem .7rem;border-radius:999px}
 .checks{list-style:none;padding:0;margin:0 0 1.6rem}
 .checks li{position:relative;padding-left:1.8rem;margin:.55rem 0}
-.checks li::before{content:"";position:absolute;left:0;top:.35em;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--primary-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230B5E4A' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/70% no-repeat}
-.checks--light li::before{background-color:rgba(255,255,255,.15);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F4B42A' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")}
+.checks li::before{content:"";position:absolute;left:0;top:.35em;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--primary-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23335564' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/70% no-repeat}
+.checks--light li::before{background-color:rgba(255,255,255,.15);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%239AE7AF' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")}
 
 /* Simulador */
 .sim{display:grid;grid-template-columns:1.1fr .9fr;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -180,7 +180,7 @@ thead th{position:sticky;top:0;background:var(--tint);font-weight:600}
 .faq details p{color:var(--muted);padding-bottom:1.1rem;margin:0}
 
 /* Rodapé */
-.footer{background:#0A1F1A;color:#CFE0DA;padding:4rem 0 0}
+.footer{background:#1A2F38;color:#D3E4DE;padding:4rem 0 0}
 .footer__grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem}
 .footer h4{color:#fff;font-size:1rem}
 .footer__slogan{margin:1rem 0;font-size:.95rem}
