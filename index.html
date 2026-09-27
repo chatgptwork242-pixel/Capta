@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.4">
+  <link rel="stylesheet" href="css/style.css?v=3.5">
 </head>
 <body>
 
@@ -57,6 +57,7 @@
       <span class="eyebrow">Microcrédito · Matola e Maputo</span>
       <h1>Tens um negócio? <span class="hl">Nós apoiamos-te.</span></h1>
       <p class="lead">Duas linhas de crédito, sem fiador: <strong>Crédito ao Negócio</strong> para comerciantes, vendedores e trabalhadores por conta própria, e <strong>Crédito Pessoal</strong> para saúde, educação e imprevistos. Mais do que crédito: acompanhamento para crescer.</p>
+      <ul class="hero__prods"><li><a href="#produtos">Crédito ao Negócio</a></li><li><a href="#produtos">Crédito Pessoal</a></li></ul>
       <div class="hero__cta">
         <a href="#simulador" class="btn btn--accent">Simular agora</a>
         <a href="#como-pedir" class="btn btn--ghost">Como pedir</a>
@@ -254,13 +255,15 @@
       <h2>Do pedido ao dinheiro em 4 passos</h2>
     </div>
     <div class="howto">
+      <div class="howto__steps">
       <ol class="steps">
         <li><span class="steps__n">1</span><div><h3>Contacte-nos</h3><p>Pelo WhatsApp, pelo formulário ou visite-nos na Liberdade, Matola.</p></div></li>
         <li><span class="steps__n">2</span><div><h3>Envie os documentos</h3><p>Só os essenciais, sem burocracia. Veja a lista ao lado.</p></div></li>
         <li><span class="steps__n">3</span><div><h3>Análise e aprovação</h3><p>Avaliamos o seu pedido e damos resposta em até 24 horas úteis.</p></div></li>
         <li><span class="steps__n">4</span><div><h3>Receba e cresça</h3><p>Recebe o valor e conta com o nosso acompanhamento até ao fim.</p></div></li>
-        <li style="padding:0"><span></span><div class="badge-24"><strong>24h</strong><span>Resposta em<br>horas úteis</span></div></li>
       </ol>
+      <p class="badge-24"><strong>24h</strong><span>Resposta em<br>horas úteis</span></p>
+      </div>
       <div class="req-cards" id="requisitos">
         <div class="card">
           <h3>Crédito ao Negócio</h3>
@@ -378,7 +381,7 @@
   <div class="container about">
     <div>
       <span class="eyebrow">Sobre nós</span>
-      <p class="about__quote">Transformamos sonhos em <span>realidade</span>.</p>
+      <p class="about__quote">Crédito próximo de quem <span>trabalha e empreende</span>.</p>
       <p>A Capta Microcrédito é uma instituição moçambicana que acredita no crédito como ferramenta de empoderamento. Colocamos o cliente no centro: mais do que crédito, oferecemos confiança, proximidade e transformação.</p>
       <ul class="pills">
         <li>Empatia</li><li>Transparência</li><li>Inclusão</li><li>Inovação</li><li>Compromisso com a comunidade</li>
@@ -424,7 +427,7 @@
     <div>
       <img src="assets/logo-branco.png" alt="Capta Microcrédito" width="185" height="56" style="height:56px;width:auto">
       <p class="footer__slogan">Empoderando o seu Potencial Financeiro</p>
-      <ul class="footer__inst" id="footerInst" hidden></ul>
+      <ul class="footer__inst" id="footerInst"><li>Capta Microcrédito, E.I.</li><li>Bairro da Liberdade, Matola – Moçambique</li></ul>
       <div class="social">
         <a id="lnkFacebook" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6c0-.9.6-1 1-1h2V2h-3c-3 0-4 2-4 4v2H8v3h2v11h4V11h3l.5-3H14z"/></svg></a>
         <a id="lnkInstagram" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></a>
@@ -433,7 +436,12 @@
     </div>
     <div>
       <h4>Contactos</h4>
-      <ul class="footer__list" id="footerContactos"></ul>
+      <ul class="footer__list" id="footerContactos">
+        <li>📞 Telefone / WhatsApp: +258 84 000 0000</li>
+        <li>✉️ info@capta.co.mz</li>
+        <li>📍 Bairro da Liberdade, Matola, Moçambique</li>
+        <li>🕒 Seg – Sex: 08h00 – 17h00 · Sáb: 08h00 – 12h00</li>
+      </ul>
     </div>
     <div>
       <h4>Links úteis</h4>
@@ -461,8 +469,8 @@
   <a href="#" class="btn btn--accent" id="mbarWa" target="_blank" rel="noopener">WhatsApp</a>
 </nav>
 
-<script src="js/config.js?v=3.4"></script>
-<script src="js/main.js?v=3.4"></script>
-<script src="js/extra.js?v=3.4"></script>
+<script src="js/config.js?v=3.5"></script>
+<script src="js/main.js?v=3.5"></script>
+<script src="js/extra.js?v=3.5"></script>
 </body>
 </html>
