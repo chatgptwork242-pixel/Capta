@@ -98,7 +98,8 @@
     if (L.registoComercial) it.push("<li>" + L.registoComercial + "</li>");
     if (L.autorizacao) it.push("<li>" + L.autorizacao + "</li>");
     if (L.moradaCompleta) it.push("<li>" + L.moradaCompleta + "</li>");
-    fi.innerHTML = it.join(""); fi.hidden = !it.length;
+    if (L.moradaCompleta === "" && C.contactos.morada) it.push("<li>" + C.contactos.morada + "</li>");
+    if (it.length) fi.innerHTML = it.join("");
   }
 
   /* ---------- Medição de visitas (GoatCounter, sem cookies) ---------- */
