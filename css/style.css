@@ -390,3 +390,10 @@ thead th{position:sticky;top:0;background:var(--tint);font-weight:600}
 .footer__inst{list-style:none;padding:0;margin:0 0 1rem;font-size:.82rem;opacity:.85}
 .footer__inst li{margin:.2rem 0}
 .form__note a{color:var(--slate);font-weight:600}
+
+/* ===== v3.5 ===== */
+.howto__steps .badge-24{margin:0 0 0 64px}
+.hero__prods{list-style:none;padding:0;margin:1.2rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem}
+.hero__prods a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;background:rgba(255,255,255,.7);border:1px solid #fff;color:var(--slate-900);font-weight:600;font-size:.92rem;padding:.45rem .9rem;border-radius:999px}
+.hero__prods a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--slate)}
+.hero__prods a:hover{background:#fff}
